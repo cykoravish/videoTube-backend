@@ -1,18 +1,5 @@
-/*
- owners object id
- videoFile string
- thumbnail string
- title string
- description string,
- duration string,
- views number
- views number
- isPublished boolean
- createdAt date
- updatedAt Date
- */
-
 import mongoose, { Schema } from "mongoose";
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 const videoSchema = new Schema(
   {
@@ -51,5 +38,5 @@ const videoSchema = new Schema(
   },
   { timestamps: true }
 );
-
+videoSchema.plugin(mongooseAggregatePaginate);
 export const Video = mongoose.model("Video", videoSchema);
